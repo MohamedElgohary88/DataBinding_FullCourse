@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
-            name="person"
-            type="com.example.databinding_fullcourse.model.Person" />
+            name="viewModel"
+            type="com.example.databinding_fullcourse.viewmodel.PersonViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,35 +17,44 @@
 
         <ImageView
             android:id="@+id/personImage"
+            personImage="@{viewModel.personLiveData.image}"
             android:layout_width="128dp"
             android:layout_height="128dp"
-            personImage="@{person.image}"
-            app:layout_constraintBottom_toTopOf="@+id/text_name"
-            app:layout_constraintEnd_toEndOf="@+id/text_name"
-            app:layout_constraintStart_toStartOf="@+id/text_name" />
-
-        <TextView
-            android:id="@+id/text_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{person.name}"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/personAge"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.428" />
+            app:layout_constraintVertical_bias="0.854" />
 
         <TextView
-            android:id="@+id/text_age"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="@{String.valueOf(person.age)}"
+
+            android:id="@+id/personName"
+            android:layout_width="180dp"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:text="@{viewModel.personLiveData.name}"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/personImage"
+            app:layout_constraintEnd_toEndOf="@+id/personImage"
+            app:layout_constraintStart_toStartOf="@+id/personImage"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.734" />
+
+        <TextView
+            android:id="@+id/personAge"
+            android:layout_width="180dp"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:text="@{String.valueOf(viewModel.personLiveData.age)}"
+            android:textSize="22sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="@+id/personImage"
+            app:layout_constraintStart_toStartOf="@+id/personImage"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.67" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

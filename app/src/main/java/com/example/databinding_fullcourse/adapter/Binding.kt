@@ -1,4 +1,4 @@
-package com.example.databinding_fullcourse.model
+package com.example.databinding_fullcourse.adapter
 
 import android.media.Image
 import android.widget.ImageView
